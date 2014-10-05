@@ -5,6 +5,7 @@ import android.location.LocationManager;
 import android.util.Log;
 
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  * Created by Ashley on 10/4/14.
@@ -22,6 +23,14 @@ public class DistrictsDataSource {
 
     public DistrictsDataSource() {
         buildDistricts();
+    }
+
+    public SFDistrict getRandomDistrict() {
+        SFDistrict[] districtsArray = new SFDistrict[] {SFDistrict.FINANCIAL, SFDistrict.MARINA, SFDistrict.FISHERMAN_WHARF, SFDistrict.NOB_HILL, SFDistrict.RUSSIAN_HILL, SFDistrict.NOB_HILL, SFDistrict.CHINATOWN,
+        SFDistrict.SOMA, SFDistrict.TENDERLOIN, SFDistrict.PACIFIC_HEIGHTS, SFDistrict.WESTERN_ADDITION, SFDistrict.HAIGHT, SFDistrict.CASTRO, SFDistrict.MISSION,
+        SFDistrict.PORTERO, SFDistrict.NOE_VALLEY, SFDistrict.PRESIDIO, SFDistrict.RICHMOND, SFDistrict.DOGPATCH, SFDistrict.GOLDEN_GATE_PARK, SFDistrict.SUNSET, SFDistrict.TWIN_PEAKS};
+        int idx = new Random().nextInt(districtsArray.length);
+        return districtsArray[idx];
     }
 
     public SFDistrict getNearestDistrict(Location location) {
@@ -120,7 +129,7 @@ public class DistrictsDataSource {
         portero.setLatitude(37.7572);
         portero.setLongitude(-122.3999);
         districtLocations.put(SFDistrict.PORTERO, portero);
-        districtNames.put(SFDistrict.PORTERO, "Portero District");
+        districtNames.put(SFDistrict.PORTERO, "Portero");
         Location noeValley = new Location(LocationManager.NETWORK_PROVIDER);
         noeValley.setLatitude(37.7514);
         noeValley.setLongitude(-122.4319);

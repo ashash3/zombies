@@ -41,7 +41,9 @@ public class ReportZombieTab extends Fragment {
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         Log.d("ASHLEY", "location: " + location);
         ParseObject zombieReport = new ParseObject("ZombieReport");
-        DistrictsDataSource.SFDistrict nearestDistrict = districtsDataSource.getNearestDistrict(location);
+        // TODO: Uncomment!
+        // DistrictsDataSource.SFDistrict nearestDistrict = districtsDataSource.getNearestDistrict(location);
+        DistrictsDataSource.SFDistrict nearestDistrict = districtsDataSource.getRandomDistrict();
         zombieReport.put("district_id", nearestDistrict.ordinal());
         zombieReport.put("district_name", districtsDataSource.getDistrictName(nearestDistrict));
         zombieReport.saveInBackground();

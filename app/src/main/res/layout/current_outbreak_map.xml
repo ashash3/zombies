@@ -8,18 +8,18 @@
         android:layout_height="520dip"
         android:layout_centerHorizontal="true"
         android:background="@drawable/full_map"/>
-    <TextView
-        android:id="@+id/current_district"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="50dip"
-        android:layout_centerHorizontal="true"/>
     <RelativeLayout
         android:id="@+id/colored_images"
         android:layout_width="360dip"
         android:layout_height="520dip"
         android:layout_centerHorizontal="true">
+        <TextView
+            android:id="@+id/current_district"
+            android:layout_width="150dip"
+            android:layout_height="23dip"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="25dip"/>
         <View
             android:id="@+id/presidio"
             android:layout_width="99dip"
@@ -152,6 +152,22 @@
             android:layout_height="37dip"
             android:layout_marginTop="131dip"
             android:layout_marginLeft="250dip"/>
+        <View
+            android:id="@+id/location_marker_pin"
+            android:layout_width="12dip"
+            android:layout_height="12dip"
+            android:layout_marginTop="50dip"
+            android:visibility="gone"/>
+        <View
+            android:id="@+id/location"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dip"
+            android:layout_alignBottom="@+id/financial_district"
+            android:layout_alignLeft="@+id/financial_district"
+            android:layout_marginLeft="10dip"
+            android:layout_marginBottom="15dip"
+            android:visibility="gone"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/click_listeners"

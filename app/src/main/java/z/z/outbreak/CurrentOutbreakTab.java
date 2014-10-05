@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.parse.FunctionCallback;
@@ -19,6 +20,7 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import z.z.MyActivity;
 import z.z.R;
@@ -176,6 +178,31 @@ public class CurrentOutbreakTab extends Fragment {
                     updateHeatMap(response);
                 } else {
                     // TODO: Add reloading logic
+                    Map<String, Object> updatedData = new HashMap<String, Object>();
+                    updatedData.put("0", 5);
+                    updatedData.put("1", 7);
+                    updatedData.put("2", 0);
+                    updatedData.put("3", 1);
+                    updatedData.put("4", 3);
+                    updatedData.put("5", 5);
+                    updatedData.put("6", 7);
+                    updatedData.put("7", 8);
+                    updatedData.put("8", 59);
+                    updatedData.put("9", 115);
+                    updatedData.put("10", 5);
+                    updatedData.put("11", 1);
+                    updatedData.put("12", 3);
+                    updatedData.put("13", 2);
+                    updatedData.put("14", 0);
+                    updatedData.put("15", 0);
+                    updatedData.put("16", 0);
+                    updatedData.put("17", 0);
+                    updatedData.put("18", 15);
+                    updatedData.put("19", 200);
+                    updatedData.put("20", 63);
+                    updatedData.put("21", 45);
+                    updatedData.put("22", 51);
+                    updateHeatMap(updatedData);
                 }
             }
         });
@@ -187,9 +214,15 @@ public class CurrentOutbreakTab extends Fragment {
             DistrictsDataSource.SFDistrict district = DistrictsDataSource.SFDistrict.values()[Integer.parseInt(districtId)];
             zombieCountByDistrict.put(district, count);
             // TODO: Update the heat map with the correct color
-            if (count > 0) {
+            if (count > 100) {
                 // Color it red
                 colorDistrictRed(district);
+            } else if (count > 50) {
+                // Color it orange
+                colorDistrictOrange(district);
+            } else if (count > 10) {
+                // Color it yellow
+                colorDistrictYellow(district);
             } else {
                 // Leave gray
             }
@@ -200,48 +233,68 @@ public class CurrentOutbreakTab extends Fragment {
         switch (district) {
             case FINANCIAL:
                 mainView.findViewById(R.id.financial_district).setBackgroundResource(R.drawable.financial_district_red);
+                return;
             case MARINA:
                 mainView.findViewById(R.id.marina).setBackgroundResource(R.drawable.marina_red);
+                return;
             case FISHERMAN_WHARF:
                 mainView.findViewById(R.id.fishermans_wharf).setBackgroundResource(R.drawable.fishermans_wharf_red);
+                return;
             case NORTH_BEACH:
                 mainView.findViewById(R.id.north_beach).setBackgroundResource(R.drawable.north_beach_red);
+                return;
             case RUSSIAN_HILL:
                 mainView.findViewById(R.id.russian_hill).setBackgroundResource(R.drawable.russian_hill_red);
+                return;
             case NOB_HILL:
                 mainView.findViewById(R.id.nob_hill).setBackgroundResource(R.drawable.nob_hill_red);
+                return;
             case CHINATOWN:
                 mainView.findViewById(R.id.chinatown).setBackgroundResource(R.drawable.chinatown_red);
+                return;
             case SOMA:
                 mainView.findViewById(R.id.soma).setBackgroundResource(R.drawable.soma_red);
+                return;
             case TENDERLOIN:
                 mainView.findViewById(R.id.tenderloin).setBackgroundResource(R.drawable.tenderloin_red);
+                return;
             case PACIFIC_HEIGHTS:
                 mainView.findViewById(R.id.pacific_heights).setBackgroundResource(R.drawable.pacific_heights_red);
+                return;
             case WESTERN_ADDITION:
                 mainView.findViewById(R.id.western_addition).setBackgroundResource(R.drawable.western_addition_red);
+                return;
             case HAIGHT:
                 mainView.findViewById(R.id.haight).setBackgroundResource(R.drawable.haight_red);
+                return;
             case CASTRO:
                 mainView.findViewById(R.id.castro).setBackgroundResource(R.drawable.castro_red);
+                return;
             case MISSION:
                 mainView.findViewById(R.id.mission).setBackgroundResource(R.drawable.mission_red);
+                return;
             case PORTERO:
                 mainView.findViewById(R.id.portero).setBackgroundResource(R.drawable.portrero_hill_red);
+                return;
             case NOE_VALLEY:
                 mainView.findViewById(R.id.noe_valley).setBackgroundResource(R.drawable.noe_valley_red);
+                return;
             case PRESIDIO:
                 mainView.findViewById(R.id.presidio).setBackgroundResource(R.drawable.presidio_red);
+                return;
             case RICHMOND:
                 mainView.findViewById(R.id.richmond).setBackgroundResource(R.drawable.richmond_red);
+                return;
             case DOGPATCH:
                 mainView.findViewById(R.id.dogpatch).setBackgroundResource(R.drawable.dogpatch_red);
+                return;
             case GOLDEN_GATE_PARK:
                 mainView.findViewById(R.id.golden_gate).setBackgroundResource(R.drawable.golden_gate_red);
+                return;
             case SUNSET:
                 mainView.findViewById(R.id.sunset).setBackgroundResource(R.drawable.sunset_red);
+                return;
             case TWIN_PEAKS:
-            default:
                 mainView.findViewById(R.id.twin_peaks).setBackgroundResource(R.drawable.twin_peaks_red);
         }
     }
@@ -249,56 +302,190 @@ public class CurrentOutbreakTab extends Fragment {
     private void colorDistrictOrange(DistrictsDataSource.SFDistrict district) {
         switch (district) {
             case FINANCIAL:
+                mainView.findViewById(R.id.financial_district).setBackgroundResource(R.drawable.financial_district_orange);
+                return;
             case MARINA:
+                mainView.findViewById(R.id.marina).setBackgroundResource(R.drawable.marina_orange);
+                return;
             case FISHERMAN_WHARF:
+                mainView.findViewById(R.id.fishermans_wharf).setBackgroundResource(R.drawable.fishermans_wharf_orange);
+                return;
             case NORTH_BEACH:
+                mainView.findViewById(R.id.north_beach).setBackgroundResource(R.drawable.north_beach_orange);
+                return;
             case RUSSIAN_HILL:
+                mainView.findViewById(R.id.russian_hill).setBackgroundResource(R.drawable.russian_hill_orange);
+                return;
             case NOB_HILL:
+                mainView.findViewById(R.id.nob_hill).setBackgroundResource(R.drawable.nob_hill_orange);
+                return;
             case CHINATOWN:
+                mainView.findViewById(R.id.chinatown).setBackgroundResource(R.drawable.chinatown_orange);
+                return;
             case SOMA:
+                mainView.findViewById(R.id.soma).setBackgroundResource(R.drawable.soma_orange);
+                return;
             case TENDERLOIN:
+                mainView.findViewById(R.id.tenderloin).setBackgroundResource(R.drawable.tenderloin_orange);
+                return;
             case PACIFIC_HEIGHTS:
+                mainView.findViewById(R.id.pacific_heights).setBackgroundResource(R.drawable.pacific_heights_orange);
+                return;
             case WESTERN_ADDITION:
+                mainView.findViewById(R.id.western_addition).setBackgroundResource(R.drawable.western_addition_orange);
+                return;
             case HAIGHT:
+                mainView.findViewById(R.id.haight).setBackgroundResource(R.drawable.haight_orange);
+                return;
             case CASTRO:
+                mainView.findViewById(R.id.castro).setBackgroundResource(R.drawable.castro_orange);
+                return;
             case MISSION:
+                mainView.findViewById(R.id.mission).setBackgroundResource(R.drawable.mission_orange);
+                return;
             case PORTERO:
+                mainView.findViewById(R.id.portero).setBackgroundResource(R.drawable.portrero_hill_orange);
+                return;
             case NOE_VALLEY:
+                mainView.findViewById(R.id.noe_valley).setBackgroundResource(R.drawable.noe_valley_orange);
+                return;
             case PRESIDIO:
+                mainView.findViewById(R.id.presidio).setBackgroundResource(R.drawable.presidio_orange);
+                return;
             case RICHMOND:
+                mainView.findViewById(R.id.richmond).setBackgroundResource(R.drawable.richmond_district_orange);
+                return;
             case DOGPATCH:
+                mainView.findViewById(R.id.dogpatch).setBackgroundResource(R.drawable.dogpatch_orange);
+                return;
             case GOLDEN_GATE_PARK:
+                mainView.findViewById(R.id.golden_gate).setBackgroundResource(R.drawable.golden_gate_orange);
+                return;
             case SUNSET:
+                mainView.findViewById(R.id.sunset).setBackgroundResource(R.drawable.sunset_orange);
+                return;
             case TWIN_PEAKS:
-            default:
+                mainView.findViewById(R.id.twin_peaks).setBackgroundResource(R.drawable.twin_peaks_orange);
         }
     }
 
     private void colorDistrictYellow(DistrictsDataSource.SFDistrict district) {
         switch (district) {
             case FINANCIAL:
+                mainView.findViewById(R.id.financial_district).setBackgroundResource(R.drawable.financial_district_yellow);
+                return;
             case MARINA:
+                mainView.findViewById(R.id.marina).setBackgroundResource(R.drawable.marina_yellow);
+                return;
             case FISHERMAN_WHARF:
+                mainView.findViewById(R.id.fishermans_wharf).setBackgroundResource(R.drawable.fishermans_wharf_yellow);
+                return;
             case NORTH_BEACH:
+                mainView.findViewById(R.id.north_beach).setBackgroundResource(R.drawable.north_beach_yellow);
+                return;
             case RUSSIAN_HILL:
+                mainView.findViewById(R.id.russian_hill).setBackgroundResource(R.drawable.russian_hill_yellow);
+                return;
             case NOB_HILL:
+                mainView.findViewById(R.id.nob_hill).setBackgroundResource(R.drawable.nob_hill_yellow);
+                return;
             case CHINATOWN:
+                mainView.findViewById(R.id.chinatown).setBackgroundResource(R.drawable.chinatown_yellow);
+                return;
             case SOMA:
+                mainView.findViewById(R.id.soma).setBackgroundResource(R.drawable.soma_yellow);
+                return;
             case TENDERLOIN:
+                mainView.findViewById(R.id.tenderloin).setBackgroundResource(R.drawable.tenderloin_yellow);
+                return;
             case PACIFIC_HEIGHTS:
+                mainView.findViewById(R.id.pacific_heights).setBackgroundResource(R.drawable.pacific_heights_yellow);
+                return;
             case WESTERN_ADDITION:
+                mainView.findViewById(R.id.western_addition).setBackgroundResource(R.drawable.western_addition_yellow);
+                return;
             case HAIGHT:
+                mainView.findViewById(R.id.haight).setBackgroundResource(R.drawable.haight_yellow);
+                return;
             case CASTRO:
+                mainView.findViewById(R.id.castro).setBackgroundResource(R.drawable.castro_yellow);
+                return;
             case MISSION:
+                mainView.findViewById(R.id.mission).setBackgroundResource(R.drawable.mission_yellow);
+                return;
             case PORTERO:
+                mainView.findViewById(R.id.portero).setBackgroundResource(R.drawable.portrero_hill_yellow);
+                return;
             case NOE_VALLEY:
+                mainView.findViewById(R.id.noe_valley).setBackgroundResource(R.drawable.noe_valley_yellow);
+                return;
             case PRESIDIO:
+                mainView.findViewById(R.id.presidio).setBackgroundResource(R.drawable.presidio_yellow);
+                return;
             case RICHMOND:
+                mainView.findViewById(R.id.richmond).setBackgroundResource(R.drawable.richmond_district_yellow);
+                return;
             case DOGPATCH:
+                mainView.findViewById(R.id.dogpatch).setBackgroundResource(R.drawable.dogpatch_yellow);
+                return;
             case GOLDEN_GATE_PARK:
+                mainView.findViewById(R.id.golden_gate).setBackgroundResource(R.drawable.golden_gate_yellow);
+                return;
             case SUNSET:
+                mainView.findViewById(R.id.sunset).setBackgroundResource(R.drawable.sunset_yellow);
+                return;
+            case TWIN_PEAKS:
+                mainView.findViewById(R.id.twin_peaks).setBackgroundResource(R.drawable.twin_peaks_yellow);
+        }
+    }
+
+    private int getViewIdForDistrict(DistrictsDataSource.SFDistrict district) {
+        switch (district) {
+            case FINANCIAL:
+                return R.id.financial_district;
+            case MARINA:
+                return R.id.marina;
+            case FISHERMAN_WHARF:
+                return R.id.fishermans_wharf;
+            case NORTH_BEACH:
+                return R.id.north_beach;
+            case RUSSIAN_HILL:
+                return R.id.russian_hill;
+            case NOB_HILL:
+                return R.id.nob_hill;
+            case CHINATOWN:
+                return R.id.chinatown;
+            case SOMA:
+                return R.id.soma;
+            case TENDERLOIN:
+                return R.id.tenderloin;
+            case PACIFIC_HEIGHTS:
+                return R.id.pacific_heights;
+            case WESTERN_ADDITION:
+                return R.id.western_addition;
+            case HAIGHT:
+                return R.id.haight;
+            case CASTRO:
+                return R.id.castro;
+            case MISSION:
+                return R.id.mission;
+            case PORTERO:
+                return R.id.portero;
+            case NOE_VALLEY:
+                return R.id.noe_valley;
+            case PRESIDIO:
+                return R.id.presidio;
+            case RICHMOND:
+                return R.id.richmond;
+            case DOGPATCH:
+                return R.id.dogpatch;
+            case GOLDEN_GATE_PARK:
+                return R.id.golden_gate;
+            case SUNSET:
+                return R.id.sunset;
             case TWIN_PEAKS:
             default:
+                return R.id.twin_peaks;
         }
     }
 
@@ -309,6 +496,46 @@ public class CurrentOutbreakTab extends Fragment {
         int zombieCount = zombieCountByDistrict.get(district);
         ((TextView) mainView.findViewById(R.id.zombie_count)).setText(String.valueOf(zombieCount));
         ((TextView) mainView.findViewById(R.id.reported_cases)).setText(zombieCount == 1 ? "reported case" : "reported cases");
+        // Set up the line on the location marker
+        View locationMarker = mainView.findViewById(R.id.location);
+        locationMarker.setVisibility(View.VISIBLE);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) locationMarker.getLayoutParams();
+        int viewId = getViewIdForDistrict(district);
+        int marginLeft = mainView.findViewById(viewId).getWidth()/2;
+        int marginBottom = mainView.findViewById(viewId).getHeight()/2;
+        layoutParams.setMargins(marginLeft, 255, 0, marginBottom);
+        layoutParams.addRule(RelativeLayout.ALIGN_LEFT, viewId);
+        layoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, viewId);
+        locationMarker.setLayoutParams(layoutParams);
+        // Set up the pin head on the location marker
+        View locationMarkerPin = mainView.findViewById(R.id.location_marker_pin);
+        locationMarkerPin.setVisibility(View.VISIBLE);
+        RelativeLayout.LayoutParams pinLayoutParams = (RelativeLayout.LayoutParams) locationMarkerPin.getLayoutParams();
+        pinLayoutParams.setMargins(marginLeft - 18, 225, 0, 0);
+        pinLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, viewId);
+        locationMarkerPin.setLayoutParams(pinLayoutParams);
+        if (zombieCount > 100) {
+            // Color it red
+            locationMarker.setBackgroundColor(getResources().getColor(R.color.red));
+            locationMarkerPin.setBackgroundResource(R.drawable.location_marker_pin_red);
+        } else if (zombieCount > 50) {
+            // Color it orange
+            locationMarker.setBackgroundColor(getResources().getColor(R.color.orange));
+            locationMarkerPin.setBackgroundResource(R.drawable.location_marker_pin_orange);
+        } else if (zombieCount > 10) {
+            // Color it yellow
+            locationMarker.setBackgroundColor(getResources().getColor(R.color.yellow));
+            locationMarkerPin.setBackgroundResource(R.drawable.location_marker_pin_yellow);
+        } else {
+            // Leave gray
+            locationMarker.setBackgroundColor(getResources().getColor(R.color.black));
+            locationMarkerPin.setBackgroundResource(R.drawable.location_marker_pin_black);
+        }
+        // Set up the text view for the district
+        RelativeLayout.LayoutParams districtTextLayoutParams = (RelativeLayout.LayoutParams) currentDistrict.getLayoutParams();
+        districtTextLayoutParams.setMargins(marginLeft - currentDistrict.getWidth()/2, 150, 0, 0);
+        districtTextLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, viewId);
+        currentDistrict.setLayoutParams(districtTextLayoutParams);
     }
 
     private static class DistrictClick implements View.OnClickListener {
