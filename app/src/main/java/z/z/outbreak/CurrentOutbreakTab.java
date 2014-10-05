@@ -31,6 +31,7 @@ import z.z.report.DistrictsDataSource;
 public class CurrentOutbreakTab extends Fragment {
 
     private View mainView;
+    // Tap views
     private View sunsetTap;
     private View goldenGateTap;
     private View richmondTap;
@@ -53,6 +54,30 @@ public class CurrentOutbreakTab extends Fragment {
     private View russianHillTap;
     private View northBeachTap;
     private View fishermanWharfTap;
+    // Colored views
+    private View sunset;
+    private View goldenGate;
+    private View richmond;
+    private View presidio;
+    private View marina;
+    private View pacificHeights;
+    private View westernAddition;
+    private View haight;
+    private View twinPeaks;
+    private View castro;
+    private View noeValley;
+    private View mission;
+    private View portero;
+    private View dogpatch;
+    private View soma;
+    private View tenderloin;
+    private View financialDistrict;
+    private View chinatown;
+    private View nobHill;
+    private View russianHill;
+    private View northBeach;
+    private View fishermanWharf;
+    // Other
     private TextView currentDistrict;
     private HashMap<DistrictsDataSource.SFDistrict, Integer> zombieCountByDistrict;
 
@@ -60,6 +85,7 @@ public class CurrentOutbreakTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mainView = inflater.inflate(R.layout.current_outbreak_map, container, false);
+        // Tap views
         sunsetTap = mainView.findViewById(R.id.sunset_tap);
         goldenGateTap = mainView.findViewById(R.id.golden_gate_tap);
         richmondTap = mainView.findViewById(R.id.richmond_tap);
@@ -106,6 +132,30 @@ public class CurrentOutbreakTab extends Fragment {
         northBeachTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.NORTH_BEACH));
         fishermanWharfTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.FISHERMAN_WHARF));
 
+        // Colored views
+        sunset = mainView.findViewById(R.id.sunset);
+        goldenGate = mainView.findViewById(R.id.golden_gate);
+        richmond = mainView.findViewById(R.id.richmond);
+        presidio = mainView.findViewById(R.id.presidio);
+        marina = mainView.findViewById(R.id.marina);
+        pacificHeights = mainView.findViewById(R.id.pacific_heights);
+        westernAddition = mainView.findViewById(R.id.western_addition);
+        haight = mainView.findViewById(R.id.haight);
+        twinPeaks = mainView.findViewById(R.id.twin_peaks);
+        castro = mainView.findViewById(R.id.castro);
+        noeValley = mainView.findViewById(R.id.noe_valley);
+        mission = mainView.findViewById(R.id.mission);
+        portero = mainView.findViewById(R.id.portero);
+        dogpatch = mainView.findViewById(R.id.dogpatch);
+        soma = mainView.findViewById(R.id.soma);
+        tenderloin = mainView.findViewById(R.id.tenderloin);
+        financialDistrict = mainView.findViewById(R.id.financial_district);
+        chinatown = mainView.findViewById(R.id.chinatown);
+        nobHill = mainView.findViewById(R.id.nob_hill);
+        russianHill = mainView.findViewById(R.id.russian_hill);
+        northBeach = mainView.findViewById(R.id.north_beach);
+        fishermanWharf = mainView.findViewById(R.id.fishermans_wharf);
+
         currentDistrict = (TextView) mainView.findViewById(R.id.current_district);
 
         zombieCountByDistrict = new HashMap<DistrictsDataSource.SFDistrict, Integer>();
@@ -133,8 +183,122 @@ public class CurrentOutbreakTab extends Fragment {
 
     private void updateHeatMap(Map<String, Object> updatedData) {
         for (String districtId : updatedData.keySet()) {
-            zombieCountByDistrict.put(DistrictsDataSource.SFDistrict.values()[Integer.parseInt(districtId)], (Integer) updatedData.get(districtId));
+            int count = (Integer) updatedData.get(districtId);
+            DistrictsDataSource.SFDistrict district = DistrictsDataSource.SFDistrict.values()[Integer.parseInt(districtId)];
+            zombieCountByDistrict.put(district, count);
             // TODO: Update the heat map with the correct color
+            if (count > 0) {
+                // Color it red
+                colorDistrictRed(district);
+            } else {
+                // Leave gray
+            }
+        }
+    }
+
+    private void colorDistrictRed(DistrictsDataSource.SFDistrict district) {
+        switch (district) {
+            case FINANCIAL:
+                mainView.findViewById(R.id.financial_district).setBackgroundResource(R.drawable.financial_district_red);
+            case MARINA:
+                mainView.findViewById(R.id.marina).setBackgroundResource(R.drawable.marina_red);
+            case FISHERMAN_WHARF:
+                mainView.findViewById(R.id.fishermans_wharf).setBackgroundResource(R.drawable.fishermans_wharf_red);
+            case NORTH_BEACH:
+                mainView.findViewById(R.id.north_beach).setBackgroundResource(R.drawable.north_beach_red);
+            case RUSSIAN_HILL:
+                mainView.findViewById(R.id.russian_hill).setBackgroundResource(R.drawable.russian_hill_red);
+            case NOB_HILL:
+                mainView.findViewById(R.id.nob_hill).setBackgroundResource(R.drawable.nob_hill_red);
+            case CHINATOWN:
+                mainView.findViewById(R.id.chinatown).setBackgroundResource(R.drawable.chinatown_red);
+            case SOMA:
+                mainView.findViewById(R.id.soma).setBackgroundResource(R.drawable.soma_red);
+            case TENDERLOIN:
+                mainView.findViewById(R.id.tenderloin).setBackgroundResource(R.drawable.tenderloin_red);
+            case PACIFIC_HEIGHTS:
+                mainView.findViewById(R.id.pacific_heights).setBackgroundResource(R.drawable.pacific_heights_red);
+            case WESTERN_ADDITION:
+                mainView.findViewById(R.id.western_addition).setBackgroundResource(R.drawable.western_addition_red);
+            case HAIGHT:
+                mainView.findViewById(R.id.haight).setBackgroundResource(R.drawable.haight_red);
+            case CASTRO:
+                mainView.findViewById(R.id.castro).setBackgroundResource(R.drawable.castro_red);
+            case MISSION:
+                mainView.findViewById(R.id.mission).setBackgroundResource(R.drawable.mission_red);
+            case PORTERO:
+                mainView.findViewById(R.id.portero).setBackgroundResource(R.drawable.portrero_hill_red);
+            case NOE_VALLEY:
+                mainView.findViewById(R.id.noe_valley).setBackgroundResource(R.drawable.noe_valley_red);
+            case PRESIDIO:
+                mainView.findViewById(R.id.presidio).setBackgroundResource(R.drawable.presidio_red);
+            case RICHMOND:
+                mainView.findViewById(R.id.richmond).setBackgroundResource(R.drawable.richmond_red);
+            case DOGPATCH:
+                mainView.findViewById(R.id.dogpatch).setBackgroundResource(R.drawable.dogpatch_red);
+            case GOLDEN_GATE_PARK:
+                mainView.findViewById(R.id.golden_gate).setBackgroundResource(R.drawable.golden_gate_red);
+            case SUNSET:
+                mainView.findViewById(R.id.sunset).setBackgroundResource(R.drawable.sunset_red);
+            case TWIN_PEAKS:
+            default:
+                mainView.findViewById(R.id.twin_peaks).setBackgroundResource(R.drawable.twin_peaks_red);
+        }
+    }
+
+    private void colorDistrictOrange(DistrictsDataSource.SFDistrict district) {
+        switch (district) {
+            case FINANCIAL:
+            case MARINA:
+            case FISHERMAN_WHARF:
+            case NORTH_BEACH:
+            case RUSSIAN_HILL:
+            case NOB_HILL:
+            case CHINATOWN:
+            case SOMA:
+            case TENDERLOIN:
+            case PACIFIC_HEIGHTS:
+            case WESTERN_ADDITION:
+            case HAIGHT:
+            case CASTRO:
+            case MISSION:
+            case PORTERO:
+            case NOE_VALLEY:
+            case PRESIDIO:
+            case RICHMOND:
+            case DOGPATCH:
+            case GOLDEN_GATE_PARK:
+            case SUNSET:
+            case TWIN_PEAKS:
+            default:
+        }
+    }
+
+    private void colorDistrictYellow(DistrictsDataSource.SFDistrict district) {
+        switch (district) {
+            case FINANCIAL:
+            case MARINA:
+            case FISHERMAN_WHARF:
+            case NORTH_BEACH:
+            case RUSSIAN_HILL:
+            case NOB_HILL:
+            case CHINATOWN:
+            case SOMA:
+            case TENDERLOIN:
+            case PACIFIC_HEIGHTS:
+            case WESTERN_ADDITION:
+            case HAIGHT:
+            case CASTRO:
+            case MISSION:
+            case PORTERO:
+            case NOE_VALLEY:
+            case PRESIDIO:
+            case RICHMOND:
+            case DOGPATCH:
+            case GOLDEN_GATE_PARK:
+            case SUNSET:
+            case TWIN_PEAKS:
+            default:
         }
     }
 
