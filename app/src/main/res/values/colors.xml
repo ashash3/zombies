@@ -2,10 +2,13 @@
 <resources>
     <color name="bright_blue">#0098D6</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#FF0000</color>
+    <color name="red">#DF4931</color>
     <color name="orange">#E56B19</color>
     <color name="yellow">#F0E20A</color>
     <color name="black">#000000</color>
     <color name="unselected_tab">#DF4931</color>
     <color name="selected_tab">#B23A27</color>
+    <color name="gray">#E7E7E7</color>
+    <color name="dark_gray">#333333</color>
+    <color name="bright_red">#FD593F</color>
 </resources>

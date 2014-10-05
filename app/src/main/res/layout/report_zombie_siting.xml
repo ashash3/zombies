@@ -3,13 +3,44 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/report_zombie_button"
+        android:layout_marginBottom="40dip"
+        android:text="Report a Zombie Sighting"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/report_zombie_button"
+        android:layout_marginBottom="20dip"
+        android:text="(We will auto-detect your location)"
+        android:textSize="13sp"/>
     <Button
         android:id="@+id/report_zombie_button"
-        android:layout_width="120dip"
-        android:layout_height="60dip"
+        android:layout_width="158dip"
+        android:layout_height="158dip"
         android:layout_centerInParent="true"
-        android:text="Report a Zombie!"
+        android:background="@drawable/report_zombie_button_selector"/>
+    <TextView
+        android:layout_width="158dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dip"
+        android:layout_alignTop="@+id/report_zombie_button"
+        android:layout_centerHorizontal="true"
+        android:text="PRESS TO SUBMIT"
+        android:textSize="11sp"
         android:textColor="@color/white"
-        android:gravity="center"
-        android:background="@color/bright_blue"/>
+        android:gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/report_zombie_button"
+        android:layout_marginTop="10dip"
+        android:text="THEN, RUN!"
+        android:textSize="20sp"/>
 </RelativeLayout>

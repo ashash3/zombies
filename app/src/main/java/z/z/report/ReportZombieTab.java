@@ -15,7 +15,7 @@ import com.parse.ParseObject;
 
 import java.lang.ref.WeakReference;
 
-import z.z.MyActivity;
+import z.z.ZombieActivity;
 import z.z.R;
 
 /**
@@ -36,7 +36,7 @@ public class ReportZombieTab extends Fragment {
     }
 
     private void reportZombie() {
-        DistrictsDataSource districtsDataSource = ((MyActivity) getActivity()).getDistrictsDataSource();
+        DistrictsDataSource districtsDataSource = ((ZombieActivity) getActivity()).getDistrictsDataSource();
         LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         Log.d("ASHLEY", "location: " + location);

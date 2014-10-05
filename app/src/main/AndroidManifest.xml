@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@style/ZombieTheme">
         <activity
-            android:name=".MyActivity"
+            android:name=".ZombieActivity"
             android:label="Infection Guide"
             android:screenOrientation="portrait">
             <intent-filter>

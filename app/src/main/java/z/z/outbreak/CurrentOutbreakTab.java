@@ -12,17 +12,11 @@ import android.widget.TextView;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
-import z.z.MyActivity;
+import z.z.ZombieActivity;
 import z.z.R;
 import z.z.report.DistrictsDataSource;
 
@@ -491,7 +485,7 @@ public class CurrentOutbreakTab extends Fragment {
 
     private void districtClicked(DistrictsDataSource.SFDistrict district) {
         if (zombieCountByDistrict.isEmpty()) return;
-        currentDistrict.setText(((MyActivity) getActivity()).getDistrictsDataSource().getDistrictName(district));
+        currentDistrict.setText(((ZombieActivity) getActivity()).getDistrictsDataSource().getDistrictName(district));
         Log.d("ASHLEY", "zombie country by district: " + zombieCountByDistrict);
         int zombieCount = zombieCountByDistrict.get(district);
         ((TextView) mainView.findViewById(R.id.zombie_count)).setText(String.valueOf(zombieCount));

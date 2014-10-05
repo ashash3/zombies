@@ -133,7 +133,7 @@
             android:layout_width="63dip"
             android:layout_height="35dip"
             android:layout_marginTop="159dip"
-            android:layout_marginLeft="173dip"/>
+            android:layout_marginLeft="172dip"/>
         <View
             android:id="@+id/marina"
             android:layout_width="65dip"
