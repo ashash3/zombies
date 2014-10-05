@@ -16,6 +16,76 @@
         android:layout_marginTop="50dip"
         android:layout_centerHorizontal="true"/>
     <RelativeLayout
+        android:id="@+id/colored_images"
+        android:layout_width="360dip"
+        android:layout_height="520dip"
+        android:layout_centerHorizontal="true">
+        <View
+            android:id="@+id/presidio"
+            android:layout_width="99dip"
+            android:layout_height="77dip"
+            android:layout_marginTop="118dip"
+            android:layout_marginLeft="78dip"
+            android:background="@drawable/presidio_red"/>
+        <View
+            android:id="@+id/richmond"
+            android:layout_width="172dip"
+            android:layout_height="65dip"
+            android:layout_marginTop="177dip"
+            android:layout_marginLeft="7dip"
+            android:background="@drawable/richmond_red"/>
+        <View
+            android:id="@+id/golden_gate"
+            android:layout_width="177dip"
+            android:layout_height="35dip"
+            android:layout_marginTop="230dip"
+            android:layout_marginLeft="14dip"
+            android:background="@drawable/golden_gate_red"/>
+        <View
+            android:id="@+id/sunset"
+            android:layout_width="153dip"
+            android:layout_height="119dip"
+            android:layout_marginTop="241dip"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/sunset_red"/>
+        <View
+            android:id="@+id/dogpatch"
+            android:layout_width="57dip"
+            android:layout_height="98dip"
+            android:layout_marginTop="216dip"
+            android:layout_marginLeft="298dip"
+            android:background="@drawable/dogpatch_red"/>
+        <View
+            android:id="@+id/fishermans_wharf"
+            android:layout_width="51dip"
+            android:layout_height="26dip"
+            android:layout_marginTop="115dip"
+            android:layout_marginLeft="224dip"
+            android:background="@drawable/fishermans_wharf_red"/>
+        <View
+            android:id="@+id/financial_district"
+            android:layout_width="26dip"
+            android:layout_height="29dip"
+            android:layout_marginTop="162dip"
+            android:layout_marginLeft="279dip"
+            android:background="@drawable/financial_district_red"/>
+        <View
+            android:id="@+id/castro"
+            android:layout_width="48dip"
+            android:layout_height="55dip"
+            android:layout_marginTop="245dip"
+            android:layout_marginLeft="179dip"
+            android:background="@drawable/castro_red"/>
+        <View
+            android:id="@+id/nob_hill"
+            android:layout_width="37dip"
+            android:layout_height="24dip"
+            android:layout_marginTop="159dip"
+            android:layout_marginLeft="232dip"
+            android:background="@drawable/nob_hill_red"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/click_listeners"
         android:layout_width="360dip"
         android:layout_height="520dip"
         android:layout_centerHorizontal="true">
