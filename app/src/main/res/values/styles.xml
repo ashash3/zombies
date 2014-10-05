@@ -1,0 +1,5 @@
+<resources>
+    <style name="ZombieTabBar" parent="android:Widget.ActionBar.TabView">
+        <item name="android:background">@color/bright_blue</item>
+    </style>
+</resources>
