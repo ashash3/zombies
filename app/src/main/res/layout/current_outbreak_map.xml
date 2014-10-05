@@ -24,172 +24,149 @@
             android:layout_width="95dip"
             android:layout_height="90dip"
             android:layout_marginTop="265dip"
-            android:layout_marginLeft="23dip"
-            android:background="#ff0000"/>
+            android:layout_marginLeft="23dip"/>
         <View
             android:id="@+id/golden_gate_tap"
             android:layout_width="140dip"
             android:layout_height="23dip"
             android:rotation="-5"
             android:layout_marginTop="236dip"
-            android:layout_marginLeft="18dip"
-            android:background="#7CFC00"/>
+            android:layout_marginLeft="18dip"/>
         <View
             android:id="@+id/richmond_tap"
             android:layout_width="160dip"
             android:layout_height="42dip"
             android:rotation="-5"
             android:layout_marginTop="193dip"
-            android:layout_marginLeft="10dip"
-            android:background="#D3D3D3"/>
+            android:layout_marginLeft="10dip"/>
         <View
             android:id="@+id/presidio_tap"
             android:layout_width="93dip"
             android:layout_height="45dip"
             android:rotation="-10"
             android:layout_marginTop="140dip"
-            android:layout_marginLeft="79dip"
-            android:background="#9CBA7F"/>
+            android:layout_marginLeft="79dip"/>
         <View
             android:id="@+id/marina_tap"
             android:layout_width="55dip"
             android:layout_height="33dip"
             android:rotation="-8"
             android:layout_marginTop="130dip"
-            android:layout_marginLeft="173dip"
-            android:background="#00E5EE"/>
+            android:layout_marginLeft="173dip"/>
         <View
             android:id="@+id/pacific_heights_tap"
             android:layout_width="57dip"
             android:layout_height="22dip"
             android:rotation="-8"
             android:layout_marginTop="165dip"
-            android:layout_marginLeft="176dip"
-            android:background="#FFFFFF"/>
+            android:layout_marginLeft="176dip"/>
         <View
             android:id="@+id/western_addition_tap"
             android:layout_width="54dip"
             android:layout_height="32dip"
             android:rotation="-8"
             android:layout_marginTop="190dip"
-            android:layout_marginLeft="176dip"
-            android:background="#663300"/>
+            android:layout_marginLeft="176dip"/>
         <View
             android:id="@+id/haight_tap"
             android:layout_width="60dip"
             android:layout_height="38dip"
             android:rotation="-8"
             android:layout_marginTop="227dip"
-            android:layout_marginLeft="161dip"
-            android:background="#9F79EE"/>
+            android:layout_marginLeft="161dip"/>
         <View
             android:id="@+id/castro_tap"
             android:layout_width="28dip"
             android:layout_height="30dip"
             android:layout_marginTop="267dip"
-            android:layout_marginLeft="188dip"
-            android:background="#FFFF00"/>
+            android:layout_marginLeft="188dip"/>
         <View
             android:id="@+id/twin_peaks_tap"
             android:layout_width="50dip"
             android:layout_height="75dip"
             android:layout_marginTop="275dip"
-            android:layout_marginLeft="133dip"
-            android:background="#1E90FF"/>
+            android:layout_marginLeft="133dip"/>
         <View
             android:id="@+id/noe_valley_tap"
             android:layout_width="48dip"
             android:layout_height="30dip"
             android:layout_marginTop="300dip"
-            android:layout_marginLeft="188dip"
-            android:background="#7f0000"/>
-
+            android:layout_marginLeft="188dip"/>
         <View
             android:id="@+id/portero_tap"
             android:layout_width="40dip"
             android:layout_height="45dip"
             android:layout_marginTop="265dip"
-            android:layout_marginLeft="283dip"
-            android:background="#E9E9E9"/>
+            android:layout_marginLeft="283dip"/>
         <View
             android:id="@+id/dogpatch_tap"
             android:layout_width="40dip"
             android:layout_height="40dip"
             android:rotation="-40"
             android:layout_marginTop="227dip"
-            android:layout_marginLeft="306dip"
-            android:background="#FF00FF"/>
+            android:layout_marginLeft="306dip"/>
         <View
             android:id="@+id/tenderloin_tap"
             android:layout_width="45dip"
             android:layout_height="32dip"
             android:rotation="-15"
             android:layout_marginTop="180dip"
-            android:layout_marginLeft="233dip"
-            android:background="#353543"/>
+            android:layout_marginLeft="233dip"/>
         <View
             android:id="@+id/soma_tap"
             android:layout_width="85dip"
             android:layout_height="40dip"
             android:rotation="-45"
             android:layout_marginTop="195dip"
-            android:layout_marginLeft="245dip"
-            android:background="#FF6699"/>
+            android:layout_marginLeft="245dip"/>
         <View
             android:id="@+id/mission_tap"
             android:layout_width="58dip"
             android:layout_height="50dip"
             android:rotation="8"
             android:layout_marginTop="250dip"
-            android:layout_marginLeft="221dip"
-            android:background="#458B00"/>
+            android:layout_marginLeft="221dip"/>
         <View
             android:id="@+id/nob_hill_tap"
             android:layout_width="32dip"
             android:layout_height="19dip"
             android:rotation="-8"
             android:layout_marginTop="162dip"
-            android:layout_marginLeft="235dip"
-            android:background="#FF9933"/>
+            android:layout_marginLeft="235dip"/>
         <View
             android:id="@+id/russian_hill_tap"
             android:layout_width="28dip"
             android:layout_height="23dip"
             android:rotation="-8"
             android:layout_marginTop="138dip"
-            android:layout_marginLeft="231dip"
-            android:background="#FF99FF"/>
+            android:layout_marginLeft="231dip"/>
         <View
             android:id="@+id/fisherman_wharf_tap"
             android:layout_width="50dip"
             android:layout_height="25dip"
             android:rotation="-8"
             android:layout_marginTop="111dip"
-            android:layout_marginLeft="226dip"
-            android:background="#0000FF"/>
+            android:layout_marginLeft="226dip"/>
         <View
             android:id="@+id/north_beach_tap"
             android:layout_width="28dip"
             android:layout_height="30dip"
             android:rotation="-8"
             android:layout_marginTop="133dip"
-            android:layout_marginLeft="263dip"
-            android:background="#33CC33"/>
+            android:layout_marginLeft="263dip"/>
         <View
             android:id="@+id/financial_district_tap"
             android:layout_width="25dip"
             android:layout_height="20dip"
             android:rotation="-10"
             android:layout_marginTop="163dip"
-            android:layout_marginLeft="283dip"
-            android:background="#6600CC"/>
+            android:layout_marginLeft="283dip"/>
         <View
             android:id="@+id/chinatown_tap"
             android:layout_width="12dip"
             android:layout_height="20dip"
             android:rotation="-8"
             android:layout_marginTop="163dip"
-            android:layout_marginLeft="269dip"
-            android:background="#FFFF99"/>
+            android:layout_marginLeft="269dip"/>
     </RelativeLayout>
 </RelativeLayout>
