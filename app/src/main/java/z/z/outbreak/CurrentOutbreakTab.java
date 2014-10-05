@@ -50,29 +50,7 @@ public class CurrentOutbreakTab extends Fragment {
     private View russianHillTap;
     private View northBeachTap;
     private View fishermanWharfTap;
-    // Colored views
-    private View sunset;
-    private View goldenGate;
-    private View richmond;
-    private View presidio;
-    private View marina;
-    private View pacificHeights;
-    private View westernAddition;
-    private View haight;
-    private View twinPeaks;
-    private View castro;
-    private View noeValley;
-    private View mission;
-    private View portero;
-    private View dogpatch;
-    private View soma;
-    private View tenderloin;
-    private View financialDistrict;
-    private View chinatown;
-    private View nobHill;
-    private View russianHill;
-    private View northBeach;
-    private View fishermanWharf;
+
     // Other
     private TextView currentDistrict;
     private HashMap<DistrictsDataSource.SFDistrict, Integer> zombieCountByDistrict;
@@ -128,30 +106,6 @@ public class CurrentOutbreakTab extends Fragment {
         northBeachTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.NORTH_BEACH));
         fishermanWharfTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.FISHERMAN_WHARF));
 
-        // Colored views
-        sunset = mainView.findViewById(R.id.sunset);
-        goldenGate = mainView.findViewById(R.id.golden_gate);
-        richmond = mainView.findViewById(R.id.richmond);
-        presidio = mainView.findViewById(R.id.presidio);
-        marina = mainView.findViewById(R.id.marina);
-        pacificHeights = mainView.findViewById(R.id.pacific_heights);
-        westernAddition = mainView.findViewById(R.id.western_addition);
-        haight = mainView.findViewById(R.id.haight);
-        twinPeaks = mainView.findViewById(R.id.twin_peaks);
-        castro = mainView.findViewById(R.id.castro);
-        noeValley = mainView.findViewById(R.id.noe_valley);
-        mission = mainView.findViewById(R.id.mission);
-        portero = mainView.findViewById(R.id.portero);
-        dogpatch = mainView.findViewById(R.id.dogpatch);
-        soma = mainView.findViewById(R.id.soma);
-        tenderloin = mainView.findViewById(R.id.tenderloin);
-        financialDistrict = mainView.findViewById(R.id.financial_district);
-        chinatown = mainView.findViewById(R.id.chinatown);
-        nobHill = mainView.findViewById(R.id.nob_hill);
-        russianHill = mainView.findViewById(R.id.russian_hill);
-        northBeach = mainView.findViewById(R.id.north_beach);
-        fishermanWharf = mainView.findViewById(R.id.fishermans_wharf);
-
         currentDistrict = (TextView) mainView.findViewById(R.id.current_district);
 
         zombieCountByDistrict = new HashMap<DistrictsDataSource.SFDistrict, Integer>();
@@ -168,29 +122,29 @@ public class CurrentOutbreakTab extends Fragment {
             public void done(Map<String, Object> response, com.parse.ParseException e) {
                 Log.d("ASHLEY", "response: " + response);
                 Log.d("ASHLEY", "exception: " + e);
-                if (e == null) {
+                if (e == null && false) {
                     updateHeatMap(response);
                 } else {
                     // TODO: Add reloading logic
                     Map<String, Object> updatedData = new HashMap<String, Object>();
-                    updatedData.put("0", 5);
+                    updatedData.put("0", 218);
                     updatedData.put("1", 7);
                     updatedData.put("2", 0);
-                    updatedData.put("3", 1);
-                    updatedData.put("4", 3);
-                    updatedData.put("5", 5);
-                    updatedData.put("6", 7);
+                    updatedData.put("3", 78);
+                    updatedData.put("4", 34);
+                    updatedData.put("5", 6);
+                    updatedData.put("6", 43);
                     updatedData.put("7", 8);
                     updatedData.put("8", 59);
                     updatedData.put("9", 115);
                     updatedData.put("10", 5);
                     updatedData.put("11", 1);
-                    updatedData.put("12", 3);
-                    updatedData.put("13", 2);
+                    updatedData.put("12", 13);
+                    updatedData.put("13", 21);
                     updatedData.put("14", 0);
                     updatedData.put("15", 0);
-                    updatedData.put("16", 0);
-                    updatedData.put("17", 0);
+                    updatedData.put("16", 103);
+                    updatedData.put("17", 25);
                     updatedData.put("18", 15);
                     updatedData.put("19", 200);
                     updatedData.put("20", 63);
