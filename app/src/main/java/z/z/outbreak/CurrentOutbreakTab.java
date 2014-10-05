@@ -2,12 +2,23 @@ package z.z.outbreak;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.parse.FunctionCallback;
+import com.parse.ParseCloud;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Array;
+import java.util.HashMap;
+import java.util.Map;
 
 import z.z.MyActivity;
 import z.z.R;
@@ -19,6 +30,7 @@ import z.z.report.DistrictsDataSource;
 
 public class CurrentOutbreakTab extends Fragment {
 
+    private View mainView;
     private View sunsetTap;
     private View goldenGateTap;
     private View richmondTap;
@@ -42,11 +54,12 @@ public class CurrentOutbreakTab extends Fragment {
     private View northBeachTap;
     private View fishermanWharfTap;
     private TextView currentDistrict;
+    private HashMap<DistrictsDataSource.SFDistrict, Integer> zombieCountByDistrict;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View mainView = inflater.inflate(R.layout.current_outbreak_map, container, false);
+        mainView = inflater.inflate(R.layout.current_outbreak_map, container, false);
         sunsetTap = mainView.findViewById(R.id.sunset_tap);
         goldenGateTap = mainView.findViewById(R.id.golden_gate_tap);
         richmondTap = mainView.findViewById(R.id.richmond_tap);
@@ -73,8 +86,8 @@ public class CurrentOutbreakTab extends Fragment {
         sunsetTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.SUNSET));
         goldenGateTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.GOLDEN_GATE_PARK));
         richmondTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.RICHMOND));
-        presidioTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.PORTERO));
-        marinaTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.PRESIDIO));
+        presidioTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.PRESIDIO));
+        marinaTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.MARINA));
         pacificHeightsTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.PACIFIC_HEIGHTS));
         westernAdditionTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.WESTERN_ADDITION));
         haightTap.setOnClickListener(new DistrictClick(this, DistrictsDataSource.SFDistrict.HAIGHT));
@@ -95,11 +108,43 @@ public class CurrentOutbreakTab extends Fragment {
 
         currentDistrict = (TextView) mainView.findViewById(R.id.current_district);
 
+        zombieCountByDistrict = new HashMap<DistrictsDataSource.SFDistrict, Integer>();
+
+        fetchOutbreakStatistics();
+
         return mainView;
     }
 
+    private void fetchOutbreakStatistics() {
+        Log.d("ASHLEY", "fetchOutbreakStatistics");
+        ParseCloud.callFunctionInBackground("getZombieCountsByDistrict", new HashMap<String, Object>(), new FunctionCallback<Map<String, Object>>() {
+            @Override
+            public void done(Map<String, Object> response, com.parse.ParseException e) {
+                Log.d("ASHLEY", "response: " + response);
+                Log.d("ASHLEY", "exception: " + e);
+                if (e == null) {
+                    updateHeatMap(response);
+                } else {
+                    // TODO: Add reloading logic
+                }
+            }
+        });
+    }
+
+    private void updateHeatMap(Map<String, Object> updatedData) {
+        for (String districtId : updatedData.keySet()) {
+            zombieCountByDistrict.put(DistrictsDataSource.SFDistrict.values()[Integer.parseInt(districtId)], (Integer) updatedData.get(districtId));
+            // TODO: Update the heat map with the correct color
+        }
+    }
+
     private void districtClicked(DistrictsDataSource.SFDistrict district) {
+        if (zombieCountByDistrict.isEmpty()) return;
         currentDistrict.setText(((MyActivity) getActivity()).getDistrictsDataSource().getDistrictName(district));
+        Log.d("ASHLEY", "zombie country by district: " + zombieCountByDistrict);
+        int zombieCount = zombieCountByDistrict.get(district);
+        ((TextView) mainView.findViewById(R.id.zombie_count)).setText(String.valueOf(zombieCount));
+        ((TextView) mainView.findViewById(R.id.reported_cases)).setText(zombieCount == 1 ? "reported case" : "reported cases");
     }
 
     private static class DistrictClick implements View.OnClickListener {

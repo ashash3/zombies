@@ -169,4 +169,47 @@
             android:layout_marginTop="163dip"
             android:layout_marginLeft="269dip"/>
     </RelativeLayout>
+    <TextView
+        android:id="@+id/zombie_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dip"/>
+    <TextView
+        android:id="@+id/reported_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="55dip"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HIGH"
+        android:textSize="14sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dip"
+        android:layout_marginLeft="15dip"
+        android:textColor="#3C3C3C"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOW"
+        android:textSize="14sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="12dip"
+        android:layout_marginRight="15dip"
+        android:textColor="#3C3C3C"/>
+    <View
+        android:layout_width="360dip"
+        android:layout_height="9dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/gradient"/>
 </RelativeLayout>

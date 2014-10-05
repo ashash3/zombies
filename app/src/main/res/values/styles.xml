@@ -1,5 +1,15 @@
 <resources>
-    <style name="ZombieTabBar" parent="android:Widget.ActionBar.TabView">
-        <item name="android:background">@color/bright_blue</item>
+    <style name="ZombieActionBarTabStyle">
+        <item name="android:background">@drawable/actionbar_tab_indicator</item>
+    </style>
+    <style name="ZombieTabBar">
+        <item name="android:background">@color/unselected_tab</item>
+    </style>
+    <style name="ZombieActionBar" parent="android:Widget.ActionBar">
+        <item name="android:background">#333333</item>
+        <item name="android:titleTextStyle">@style/ZombieActionBarTitle</item>
+    </style>
+    <style name="ZombieActionBarTitle">
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

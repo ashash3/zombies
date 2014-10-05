@@ -3,4 +3,7 @@
     <color name="bright_blue">#0098D6</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF0000</color>
+    <color name="black">#000000</color>
+    <color name="unselected_tab">#DF4931</color>
+    <color name="selected_tab">#B23A27</color>
 </resources>

@@ -7,6 +7,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.drawable.Drawable;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -64,21 +65,34 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                     .setCustomView(R.layout.tab_view)
                     .setTabListener(this);
             ((TextView) tab.getCustomView().findViewById(R.id.title)).setText(getTabTitle(i));
+            tab.getCustomView().findViewById(R.id.icon).setBackgroundResource(getTabIcon(i));
             actionBar.addTab(tab);
         }
         districtsDataSource = new DistrictsDataSource();
     }
 
-    public String getTabTitle(int position) {
+    private String getTabTitle(int position) {
         switch (position) {
             case 0:
-                return "Report\nZombies";
+                return "REPORT\nZOMBIES";
             case 1:
-                return "Current\nOutbreak";
+                return "CURRENT\nOUTBREAK";
             case 2:
-                return "Self\nDiagnose";
+                return "SELF\nDIAGNOSE";
         }
         return null;
+    }
+
+    private int getTabIcon(int position) {
+        switch (position) {
+            case 0:
+                return R.drawable.icon_flag;
+            case 1:
+                return R.drawable.icon_location;
+            case 2:
+            default:
+                return R.drawable.icon_pill;
+        }
     }
 
     public DistrictsDataSource getDistrictsDataSource() {
@@ -109,10 +123,12 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         // When the given tab is selected, switch to the corresponding page in
         // the ViewPager.
         mViewPager.setCurrentItem(tab.getPosition());
+        tab.getCustomView().setBackgroundColor(getResources().getColor(R.color.selected_tab));
     }
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        tab.getCustomView().setBackgroundColor(getResources().getColor(R.color.unselected_tab));
     }
 
     @Override

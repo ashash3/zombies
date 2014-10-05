@@ -4,5 +4,7 @@
     <style name="ZombieTheme"
         parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarTabBarStyle">@style/ZombieTabBar</item>
+        <item name="android:actionBarTabStyle">@style/ZombieActionBarTabStyle</item>
+        <item name="android:actionBarStyle">@style/ZombieActionBar</item>
     </style>
 </resources>
