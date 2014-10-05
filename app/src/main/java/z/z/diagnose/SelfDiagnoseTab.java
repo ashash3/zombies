@@ -94,6 +94,8 @@ public class SelfDiagnoseTab extends Fragment {
         mainView.findViewById(R.id.prevention_tips_header).setVisibility(View.VISIBLE);
         mainView.findViewById(R.id.prevention_tips).setVisibility(View.VISIBLE);
         ((TextView) mainView.findViewById(R.id.percent_chance)).setText(String.format("%d%%", (int) percentChance));
+        currentPage = 0;
+        yesCount = 0;
     }
 
     private void resetSurvey() {
@@ -118,10 +120,10 @@ public class SelfDiagnoseTab extends Fragment {
         public void onClick(View v) {
             SelfDiagnoseTab selfDiagnoseTab = selfDiagnoseTabRef.get();
             if (selfDiagnoseTab != null) {
+                if (v == selfDiagnoseTab.yesButton) {
+                    selfDiagnoseTab.incrementYesCount();
+                }
                 if (selfDiagnoseTab.currentPage < 5) {
-                    if (v == selfDiagnoseTab.yesButton) {
-                        selfDiagnoseTab.incrementYesCount();
-                    }
                     selfDiagnoseTab.currentPage++;
                     selfDiagnoseTab.updatePage();
                 } else {

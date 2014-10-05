@@ -83,7 +83,7 @@
             android:id="@+id/percent_chance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="50sp"
+            android:textSize="45sp"
             android:textColor="@color/bright_red"
             android:layout_centerInParent="true"/>
         <TextView
@@ -107,15 +107,17 @@
         android:paddingLeft="30dip"
         android:textColor="@color/white"
         android:textSize="15sp"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
     <View
         android:id="@+id/prevention_icon"
         android:layout_width="22dip"
         android:layout_height="20dip"
         android:layout_marginTop="13dip"
         android:layout_marginRight="30dip"
+        android:layout_alignTop="@id/prevention_tips_header"
         android:layout_alignParentRight="true"
-        android:background="@drawable/ax_icon"/>
+        android:background="@drawable/ax_icon"
+        android:visibility="gone"/>
     <TextView
         android:id="@+id/prevention_tips"
         android:layout_width="match_parent"
@@ -124,9 +126,9 @@
         android:text="Wash hands frequently \nAvoid close or intimate contact with others \nStay inside \nAvoid areas with high infection rates"
         android:textSize="16sp"
         android:textColor="@color/white"
-        android:lineSpacingExtra="6sp"
+        android:lineSpacingExtra="5sp"
         android:gravity="center_vertical"
         android:paddingLeft="30dip"
         android:background="@color/dark_gray"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 </RelativeLayout>
